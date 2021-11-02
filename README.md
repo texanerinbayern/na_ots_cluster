@@ -12,7 +12,6 @@ deploy_pwd: ""
 vcenter_password: ""
 ontap_pwd: ""
 host_esx_password: ""
-host_kvm_password: ""
 ```
 ```yaml
 # ----------------------------------------------------------------
@@ -21,7 +20,7 @@ host_kvm_password: ""
 #   the playbook along with the include_role statement
 # ----------------------------------------------------------------
 node_count: <Number of nodes in the cluster - 1,2,4,6,8>
-hypervisor: <Hypervisor Type - ESX or KVM>
+hypervisor: <Hypervisor Type - ESX>
 ```
 ```yaml
 # ------------------------------------------------------------------------
@@ -46,13 +45,13 @@ monitor_netcheck_delay: <Delay in seconds between netcheck retries>
 # Network Connectivity Check
 # - Set to true to run the network connectivity check
 # - Valid modes: quick, extended, cleanup
-# - Valid switch types: StandardvSwitch, DistributedvSwitch, OpenvSwitch
+# - Valid switch types: StandardvSwitch, DistributedvSwitch
 # - cluster_nodes referenced so make sure item count = node count !!!
 # ----------------------------------------------------------------------
 run_net_check: <flag to indicate if network connectivity check should be run or not - true, false>
 net_mode: <modes of network checking - quick, extended, cleanup>
 net_mtu: <MTU size>
-net_switch_type: <types of switch - StandardvSwitch, DistributedvSwitch, OpenvSwitch>
+net_switch_type: <types of switch - StandardvSwitch or DistributedvSwitch>
 ```
 
 ```yaml
@@ -75,12 +74,6 @@ vcenter_name: <your v-center name or IP>
 # Hosts
 # -----
 esxi_hosts:
-  - host_name:
-    host_login:
-  - host_name:
-    host_login:
-
-kvm_hosts:
   - host_name:
     host_login:
   - host_name:
@@ -115,7 +108,7 @@ internal_network: Internal
 # --------
 # Instance
 # --------
-instance_type: <small or medium>
+instance_type: <small, medium, large>
 ```
 ```yaml
 # --------------------------------------------------
